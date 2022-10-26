@@ -1,0 +1,2 @@
+Compilar:
+    mcs arquivoentrando.cs -out:arquivosaindo.exe
