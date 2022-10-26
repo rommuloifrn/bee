@@ -3,6 +3,7 @@ using System;
 public class Program {
 
     public static void Main(string[] args) {
+    
         Console.WriteLine("Digite a nota do primeiro bimestre da disciplina:");
         int n1 = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Digite a nota do segundo bimestre da disciplina:");

@@ -1,2 +1,4 @@
 Compilar:
     mcs arquivoentrando.cs -out:arquivosaindo.exe
+Rodar:
+    mono arquivo.exe
