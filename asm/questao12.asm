@@ -24,17 +24,19 @@
     sll $t7 $t2 4
     sub $t2 $t7 $t2
 
-    # Sums the three multiplications on t7 and shifts 2 bits to left
+    # Sums the three multiplications on t7
     add $t7 $t0 $t1
     add $t7 $t7 $t2
-    sll $t7 $t7 2
 
     # Stores 27 (sum of the three weights) on $t6
     addi $t6 $0 27
-
+    # Divides the sum of the multiplications by the sum of the weights
     div $t7 $t6
-    mflo $t7
-    srl $t7 $t7 2
+    mflo $a0
+
+    # Prints the result
+    addi $v0 $0 1
+    syscall
 
 
 
