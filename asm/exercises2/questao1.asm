@@ -11,29 +11,27 @@
     syscall
     add $t1 $0 $v0
 
-    # Subtracts the second number from the first one and stores on t7
-    sub $t7 $t0 $t1
-    # Shifts t7 31 bits to right (leaving only the signal bit)
-    srl $t7 $t7 31
-    # Stores AND between t7 and 1 in a0 ($4) and sets opcode to 1
-    andi $a0 $t7 1
-    addi $v0 $0 1
+    # If rs < rt, stores 1 on t3. Otherwise, stores 0
+    slt $t3 $t0 $t1
 
-    # PROBLEMA DE PULO AQUI !!!!!!!!
-    # If result = 0 print t0, else print t1
-    beq $a0 0 maior
+    beq $t3 0 maior
+
     j menor
+
     maior:
-    add $a0 $0 $t0
-    addi $v0 $0 1
-    syscall
+        add $a0 $0 $t0
+        addi $v0 $0 1
+        syscall
+    j end
+
     menor:
-    add $a0 $0 $t1
-    addi $v0 $0 1
-    syscall
+        add $a0 $0 $t1
+        addi $v0 $0 1
+        syscall
 
 
     # New line & finishes the program
+end:
     addi $4 $0 10
     addi $2 $0 11
     syscall
