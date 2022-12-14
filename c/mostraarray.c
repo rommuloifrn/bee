@@ -1,10 +1,13 @@
 #include <stdio.h>
+int mar(int x[]) {
 
+}
 int main(){
-    int x;
+    int i;
     int myarr[10] = {3, 2, 6, 25};
-    scanf("%d", &x);
-    printf("%d\n", myarr[x]);
+    for (i = 0; i<10; i++) {
+        printf("%d\n",myarr[i]);
+    }
 
     return 0;
 }
